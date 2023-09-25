@@ -64,9 +64,9 @@ def avance():
 
         last_snake_part = head_pos
 
-        head_pos = (head_pos[0] + dx, head_pos[1] + dy)
+        head_pos = ((head_pos[0] + dx)%pyxel.width, (head_pos[1] + dy)%pyxel.height)
 
-        if head_pos in serpent or head_pos[0] > pyxel.width or head_pos[1] > pyxel.height or head_pos[0] < 0 or head_pos[1] < 0:
+        if head_pos in serpent or head_pos[0] < 0 or head_pos[1] < 0:
             lance_game()
 
         if pomme != None and head_pos == pomme:
