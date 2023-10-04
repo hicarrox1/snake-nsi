@@ -1,6 +1,12 @@
 import pyxel
 from collections import deque
 from random import randint
+"""jeu snake basique
+- utiliser les fleches directionelles pour vous diriger
+- manger des pomme rouge pour grandir 
+- vous avez 1 chance sur 4 de gagner de la vitesse
+- si vous manger une pomme violette vous pouvez ralentir
+- cliquer sur espace lorsque vous mourrez pour rejouez"""
 
 pyxel.init(200,200, title="snake")
 
@@ -226,7 +232,7 @@ def update():
 
 def draw():
 
-    global suprime, last_snake_part, head_pos, snake_body_color, snake_head_color, score, dead, special_pomme, suprime_special_pomme, snake_speed
+    global suprime, last_snake_part, head_pos, snake_body_color, snake_head_color, score, dead, special_pomme, suprime_special_pomme, snake_speed, min_speed
 
     if not dead:
 
@@ -262,7 +268,7 @@ def draw():
         # texte de score et de speed
 
         pyxel.text(4,4,str(score),10)
-        pyxel.text(pyxel.width-40,4,f"speed : {5-snake_speed}",15)
+        pyxel.text(pyxel.width-40,4,f"speed : {min_speed-snake_speed}",15)
 
     else:
         # ecran de game over
